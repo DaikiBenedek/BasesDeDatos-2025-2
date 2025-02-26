@@ -9,7 +9,7 @@ public class Emprendedor {
     private String apellidoPat;
     private String apellidoMat;
     private String domicilio;
-    private ArrayList<Long> telefonos;
+    private ArrayList<String> telefonos;
     private ArrayList<String> correos;
     private String fechaNac;
     private String genero;
@@ -28,7 +28,7 @@ public class Emprendedor {
      * @param genero      Género del emprendedor.
      */
     public Emprendedor(String rfc, String nombre, String apellidoPat, String apellidoMat, String domicilio,
-                       ArrayList<Long> telefonos, ArrayList<String> correos, String fechaNac, String genero) {
+                       ArrayList<String> telefonos, ArrayList<String> correos, String fechaNac, String genero) {
         this.rfc = rfc;
         this.nombre = nombre;
         this.apellidoPat = apellidoPat;
@@ -125,7 +125,7 @@ public class Emprendedor {
      * Obtiene la lista de teléfonos del emprendedor.
      * @return Lista de números de teléfono.
      */
-    public ArrayList<Long> getTelefonos() { 
+    public ArrayList<String> getTelefonos() { 
         return telefonos;
      }
 
@@ -133,7 +133,7 @@ public class Emprendedor {
      * Establece la lista de teléfonos del emprendedor.
      * @param telefonos Lista de números de teléfono.
      */
-    public void setTelefonos(ArrayList<Long> telefonos) { 
+    public void setTelefonos(ArrayList<String> telefonos) { 
         this.telefonos = telefonos; 
     }
 
