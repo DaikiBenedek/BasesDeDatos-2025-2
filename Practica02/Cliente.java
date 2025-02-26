@@ -2,6 +2,7 @@
  * Representa un cliente con su información personal y de pago.
  */
 public class Cliente {
+    private int id;
     private String nombre;
     private String apellidoPat;
     private String apellidoMat;
@@ -14,6 +15,7 @@ public class Cliente {
     /**
      * Constructor que inicializa un cliente con los valores proporcionados.
      *
+     * @param id  ID del cliente
      * @param nombre       Nombre del cliente.
      * @param apellidoPat  Apellido paterno del cliente.
      * @param apellidoMat  Apellido materno del cliente.
@@ -23,7 +25,8 @@ public class Cliente {
      * @param vencimiento  Fecha de vencimiento de la tarjeta.
      * @param cvv          Código de seguridad de la tarjeta.
      */
-    public Cliente(String nombre, String apellidoPat, String apellidoMat, boolean metodoPago, String domicilio, String numeroTarjeta, String vencimiento, int cvv) {
+    public Cliente(int id, String nombre, String apellidoPat, String apellidoMat, boolean metodoPago, String domicilio, String numeroTarjeta, String vencimiento, int cvv) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidoPat = apellidoPat;
         this.apellidoMat = apellidoMat;
@@ -32,6 +35,15 @@ public class Cliente {
         this.numeroTarjeta = numeroTarjeta;
         this.vencimiento = vencimiento;
         this.cvv = cvv;
+    }
+
+
+    /**
+     * Obtiene el ID del cliente.
+     * @return ID del cliente.
+     */
+    public int getId() {
+        return id;
     }
 
     /**

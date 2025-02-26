@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Negocio {
+    private int id;
     private String nombreNegocio;
     private ArrayList<Long> telefonos = new ArrayList<>();
     private ArrayList<String> correos = new ArrayList<>();
@@ -11,6 +12,7 @@ public class Negocio {
     /**
      * Constructor que inicializa un negocio con los valores proporcionados.
      * 
+     * @param id  ID del negocio
      * @param nombreNegocio  Nombre del negocio
      * @param telefonos      Lista de números de teléfono
      * @param correos        Lista de correos electrónicos
@@ -18,13 +20,22 @@ public class Negocio {
      * @param rangoPrecios   Rango de precios del negocio
      * @param descripcion    Descripción del negocio
      */
-    public Negocio(String nombreNegocio, ArrayList<Long> telefonos, ArrayList<String> correos, ArrayList<String> redesSociales, String rangoPrecios, String descripcion) {
+    public Negocio(int id, String nombreNegocio, ArrayList<Long> telefonos, ArrayList<String> correos, ArrayList<String> redesSociales, String rangoPrecios, String descripcion) {
+        this.id = id;
         this.nombreNegocio = nombreNegocio;
         this.telefonos = telefonos;
         this.correos = correos;
         this.redesSociales = redesSociales;
         this.rangoPrecios = rangoPrecios;
         this.descripcion = descripcion;
+    }
+
+    /**
+     * Obtiene el ID del negocio.
+     * @return ID del negocio.
+     */
+    public int getId() {
+        return id;
     }
 
     /**

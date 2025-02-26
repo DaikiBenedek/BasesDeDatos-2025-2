@@ -1,10 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MenuPrincipal {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
+  	static ArrayList<Negocio> negocios = ReadCSV.leeNegociosCSV("Negocios.csv");
+  	static ArrayList<Cliente> clientes =  ReadCSV.leeClientesCSV("Clientes.csv");
+  	static ArrayList<Emprendedor> emprendedores =  ReadCSV.leeEmprendedoresCSV("Emprendedores.csv");
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -36,7 +41,7 @@ public class MenuPrincipal {
           System.out.println("          2  -- GESTIONAR Emprendedores");
           System.out.println("          3  -- GESTIONAR Negocios");
           System.out.println("\n");
-          System.out.println("          OPRIME 5 PARA SALIR");
+          System.out.println("          OPRIME 4 PARA SALIR");
     
           System.out.println("Escribe una de las opciones");
           opcion = sc.nextInt();
@@ -44,18 +49,21 @@ public class MenuPrincipal {
             switch (opcion){
               case 1:
                 System.out.println("Has seleccionado la opcion 1 Gestion de Clientes");
+				menuCliente();
                 break;
               case 2:
                 System.out.println("Has seleccionado la opcion 2 Gestion de Emprendedores");
-                break;
+                menuEmprendedor();
+				break;
               case 3:
                 System.out.println("Has seleccionado la opcion 3 Gestion de Negocios");
-                break;
-              case 5:
+                menuNegocio();
+				break;
+              case 4:
                 salir = true;
                 break;
               default:
-                System.out.println("Solo números entre 1 y 5");
+                System.out.println("Solo números entre 1 y 4");
             }
           }
             catch (IllegalArgumentException e) {
@@ -65,11 +73,57 @@ public class MenuPrincipal {
     }
 
     public static void menuCliente(){
-
+		
     }
 
     public static void menuEmprendedor(){
+		boolean flag;
+		String rfc;
+    	String nombre;
+		String apellidoPat;
+		String apellidoMat;
+		String domicilio;
+    	ArrayList<Long> telefonos = new ArrayList<>();
+    	ArrayList<String> correos = new ArrayList<>();
+    	String fechaNac;
+		String genero;
 
+		rfc = getOnlyLettersSpaceNumber("¿Cuál es el RFC?: ");
+		nombre = getOnlyLettersSpace("¿Cuál es el nombre?: ");
+		apellidoPat =  getOnlyLetters("¿Cuál es el apellido paterno?: ");
+		apellidoMat =  getOnlyLetters("¿Cuál es el apellido materno?: ");
+		domicilio =  getOnlyLettersSpaceNumber("¿Cuál es el domicilio?: ");
+		// Solicitar teléfonos
+
+    	System.out.println("Ingrese los teléfonos (ingrese '0' para terminar):");
+    	while (true) {
+       		String telefono = getOnlyNumber("Ingrese un teléfono: ");
+        	if (telefono.equalsIgnoreCase("0")) {
+            	break;
+        	}
+        	try {
+            	telefonos.add(Long.parseLong(telefono)); // Convertir a Long y agregar a la lista
+        	} catch (NumberFormatException e) {
+            	System.out.println("Error: Ingrese un número válido.");
+        	}
+    	}
+
+    	// Solicitar correos
+		System.out.println("Ingrese los correos (ingrese 'fin@hotmail.com' para terminar):");
+		while (true) {
+			String correo = getEmail("Ingrese un correo: ");
+			if (correo.equalsIgnoreCase("fin@hotmail.com")) {
+				break;
+			}
+			correos.add(correo); // Agregar a la lista
+		}
+
+		fechaNac = getFechaDeNacimiento("¿Cuál es la fecha de Nacimiento? (en formato DD/MM/YYYY): ");
+		genero = getOnlyLettersSpace("¿Cuál es el género?: ");
+
+		// Crear el objeto Emprendedor
+		Emprendedor emprendedorNuevo = new Emprendedor(rfc, nombre, apellidoPat, apellidoMat, domicilio, telefonos, correos, fechaNac, genero);
+		ReadCSV.agregaEmprendedores("Emprendedores.csv", emprendedorNuevo,emprendedores);
     }
 
     public static void menuNegocio(){

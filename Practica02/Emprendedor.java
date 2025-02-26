@@ -40,6 +40,7 @@ public class Emprendedor {
         this.genero = genero;
     }
 
+    
     /**
      * Obtiene el RFC del emprendedor.
      * @return RFC del emprendedor.
@@ -182,6 +183,25 @@ public class Emprendedor {
      */
     public void setGenero(String genero) { 
         this.genero = genero; 
+    }
+
+    /**
+	 * @return String
+	 */
+	// class toString
+	public String toString() {
+
+		String s = "\n RFC Emprendedor: " + this.rfc + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
+				+ this.apellidoPat + "\n" + "Apellido Materno: " + this.apellidoMat + "\n"
+				+ "Domicilio: " + this.domicilio + "\n" + "Telefonos: " + this.telefonos + "\n" + "correos: " + this.correos
+                + "Fecha de Nacimiento: " + this.fechaNac + "Genero: " + this.genero + "\n" ;
+		return s;
+    }
+
+    public String serializa(){
+        String cadena = rfc+";"+ nombre + ";"+ apellidoPat+";"+ apellidoMat+";"+ domicilio+";"+ telefonos.toString() +";"+
+        correos.toString() +";"+ fechaNac+";"+ genero + "\n";
+        return cadena;
     }
 }
 
