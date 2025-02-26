@@ -193,8 +193,8 @@ public class Emprendedor {
 
 		String s = "\n RFC Emprendedor: " + this.rfc + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
 				+ this.apellidoPat + "\n" + "Apellido Materno: " + this.apellidoMat + "\n"
-				+ "Domicilio: " + this.domicilio + "\n" + "Telefonos: " + this.telefonos + "\n" + "correos: " + this.correos
-                + "Fecha de Nacimiento: " + this.fechaNac + "Genero: " + this.genero + "\n" ;
+				+ "Domicilio: " + this.domicilio + "\n" + "Telefonos: " + this.telefonos + "\n" + "correos: " + this.correos + "\n"
+                + "Fecha de Nacimiento: " + this.fechaNac + "\n" + "Genero: " + this.genero + "\n" ;
 		return s;
     }
 

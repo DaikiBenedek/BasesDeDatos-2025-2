@@ -77,57 +77,85 @@ public class MenuPrincipal {
     }
 
     public static void menuEmprendedor(){
-		boolean flag;
-		String rfc;
-    	String nombre;
-		String apellidoPat;
-		String apellidoMat;
-		String domicilio;
-    	ArrayList<Long> telefonos = new ArrayList<>();
-    	ArrayList<String> correos = new ArrayList<>();
-    	String fechaNac;
-		String genero;
+		int a = getInt(4,"¿Qué deseas realizar? \n Escribe 0 para agregar un nuevo Emprendedor \n Escribe 1 para consultar un Emprendedor \n Escribe 2 para editar un Emprendedor \n Escribe 3 para eliminar un Emprendedor", "Error, eso no es una opcion");
+    	switch (a){
 
-		rfc = getOnlyLettersSpaceNumber("¿Cuál es el RFC?: ");
-		nombre = getOnlyLettersSpace("¿Cuál es el nombre?: ");
-		apellidoPat =  getOnlyLetters("¿Cuál es el apellido paterno?: ");
-		apellidoMat =  getOnlyLetters("¿Cuál es el apellido materno?: ");
-		domicilio =  getOnlyLettersSpaceNumber("¿Cuál es el domicilio?: ");
-		// Solicitar teléfonos
+      	case (0): //Agregar
+			boolean flag;
+			String rfc;
+			String nombre;
+			String apellidoPat;
+			String apellidoMat;
+			String domicilio;
+			ArrayList<Long> telefonos = new ArrayList<>();
+			ArrayList<String> correos = new ArrayList<>();
+			String fechaNac;
+			String genero;
 
-    	System.out.println("Ingrese los teléfonos (ingrese '0' para terminar):");
-    	while (true) {
-       		String telefono = getOnlyNumber("Ingrese un teléfono: ");
-        	if (telefono.equalsIgnoreCase("0")) {
-            	break;
-        	}
-        	try {
-            	telefonos.add(Long.parseLong(telefono)); // Convertir a Long y agregar a la lista
-        	} catch (NumberFormatException e) {
-            	System.out.println("Error: Ingrese un número válido.");
-        	}
-    	}
+			rfc = getOnlyLettersSpaceNumber("¿Cuál es el RFC?: ");
+			nombre = getOnlyLettersSpace("¿Cuál es el nombre?: ");
+			apellidoPat =  getOnlyLetters("¿Cuál es el apellido paterno?: ");
+			apellidoMat =  getOnlyLetters("¿Cuál es el apellido materno?: ");
+			domicilio =  getOnlyLettersSpaceNumber("¿Cuál es el domicilio?: ");
+			// Solicitar teléfonos
 
-    	// Solicitar correos
-		System.out.println("Ingrese los correos (ingrese 'fin@hotmail.com' para terminar):");
-		while (true) {
-			String correo = getEmail("Ingrese un correo: ");
-			if (correo.equalsIgnoreCase("fin@hotmail.com")) {
-				break;
+			System.out.println("Ingrese los teléfonos (ingrese '0' para terminar):");
+			while (true) {
+				String telefono = getOnlyNumber("Ingrese un teléfono: ");
+				if (telefono.equalsIgnoreCase("0")) {
+					break;
+				}
+				try {
+					telefonos.add(Long.parseLong(telefono)); // Convertir a Long y agregar a la lista
+				} catch (NumberFormatException e) {
+					System.out.println("Error: Ingrese un número válido.");
+				}
 			}
-			correos.add(correo); // Agregar a la lista
+
+			// Solicitar correos
+			System.out.println("Ingrese los correos (ingrese 'fin@hotmail.com' para terminar):");
+			while (true) {
+				String correo = getEmail("Ingrese un correo: ");
+				if (correo.equalsIgnoreCase("fin@hotmail.com")) {
+					break;
+				}
+				correos.add(correo); // Agregar a la lista
+			}
+
+			fechaNac = getFechaDeNacimiento("¿Cuál es la fecha de Nacimiento? (en formato DD/MM/YYYY): ");
+			genero = getOnlyLettersSpace("¿Cuál es el género?: ");
+
+			// Crear el objeto Emprendedor
+			Emprendedor emprendedorNuevo = new Emprendedor(rfc, nombre, apellidoPat, apellidoMat, domicilio, telefonos, correos, fechaNac, genero);
+			ReadCSV.agregaEmprendedores("Practica02/src/Emprendedores.csv", emprendedorNuevo,emprendedores);
+			break;
+		case (1): //Consultar
+			Scanner scEmprendedor2 = new Scanner(System.in);
+			System.out.println("¿Cuál es el rfc del emprendedor que deseas consultar?");
+			rfc = scEmprendedor2.nextLine();
+			ReadCSV.consultaEmprendedor(rfc, emprendedores);
+		break;
+
+		case (2):
+		//Editar
+		break;
+
+		case (3):
+			Scanner scEmprendedor3 = new Scanner(System.in);
+			System.out.println("¿Cuál es el rfc deñ emprendedor que deseas eliminar?");
+			rfc = scEmprendedor3.nextLine();
+			ReadCSV.eliminaEmprendedor(rfc, emprendedores);
+		break;
+	  
+		default:
+			System.out.println("Elige una opcion válida");
+		break;
 		}
 
-		fechaNac = getFechaDeNacimiento("¿Cuál es la fecha de Nacimiento? (en formato DD/MM/YYYY): ");
-		genero = getOnlyLettersSpace("¿Cuál es el género?: ");
-
-		// Crear el objeto Emprendedor
-		Emprendedor emprendedorNuevo = new Emprendedor(rfc, nombre, apellidoPat, apellidoMat, domicilio, telefonos, correos, fechaNac, genero);
-		ReadCSV.agregaEmprendedores("Emprendedores.csv", emprendedorNuevo,emprendedores);
     }
 
     public static void menuNegocio(){
-
+		
     }
     /**
     *getInt recibe un entero, dos cadenas y devuelve un entero, si lo que el usuario ponga no es un entero, devolverá error

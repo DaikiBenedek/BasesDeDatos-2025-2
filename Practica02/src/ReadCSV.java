@@ -17,7 +17,7 @@ public class ReadCSV {
      */
     public static ArrayList<Negocio> leeNegociosCSV(String dir){
         ArrayList<Negocio> negocios = new ArrayList<Negocio>();
-
+        
         if(dir.contains("egocio")){
             try {
                 // creamos el buffer que lee de nuestro archivo 'dir'.
