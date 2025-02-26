@@ -57,7 +57,7 @@ public class ReadCSV {
             // error en caso de no haber encontrado el archivo.
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-                System.out.println("Error en 'plantas.csv'");
+                System.out.println("Error en 'Negocio.csv'");
             // error en entrada o salida.
             } catch (IOException es) {
                 es.printStackTrace();
@@ -274,4 +274,40 @@ public class ReadCSV {
         return emprendedores;
     }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //MÉTODOS PARA CONSULTAR
+    /**
+     * Método que consulta la información de un emprendedor.
+     * @param id identificador único.
+     * @param arrEmp arrayList de empleados
+     */
+    public static void consultaEmprendedor(String rfc, ArrayList<Emprendedor> arrEmp){
+        boolean encontrado = false;
+        for( int i = 0; i< arrEmp.size(); i++){
+            Emprendedor emp = arrEmp.get(i);
+            if(emp.getRfc().equals(rfc)){
+                System.out.println(emp);
+                encontrado = true;
+                emp.toString();
+            }
+        }
+        if(!encontrado){
+            System.out.println("No se encontró al emprendedor");
+        }
+    }
 }
