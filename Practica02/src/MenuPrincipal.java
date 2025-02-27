@@ -18,7 +18,7 @@ public class MenuPrincipal {
         int opcion; // Guardaremos la opcion del usuario
     
         while (!salir) {
-          System.out.println(" .oPYo.  o                                   o      8        ");
+          System.out.println(" \n .oPYo.  o                                   o      8        ");
           System.out.println(" 8   `8                                             8        ");
           System.out.println("o8YooP' o8 .oPYo. odYo. o    o .oPYo. odYo. o8 .oPYo8 .oPYo. ");
           System.out.println(" 8   `b  8 8oooo8 8' `8 Y.  .P 8oooo8 8' `8  8 8    8 8    8 ");
