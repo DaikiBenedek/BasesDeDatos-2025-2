@@ -120,23 +120,23 @@ public class ReadCSV {
                 // iteremos hasta que no encontremos líneas.
                 while (aux != null){
                     arr = aux.split(";");
-                    ArrayList<Long> telefonos = new ArrayList<>();
+                    ArrayList<String> telefonos = new ArrayList<>();
                     ArrayList<String> correos = new ArrayList<>();
 
                     // Convertir los datos de telefonos a ArrayList<Long>
-                    String[] telefonosStr = arr[1].split(",");
+                    String[] telefonosStr = arr[5].split(",");
                     for (String telefono : telefonosStr) {
-                        telefonos.add(Long.parseLong(telefono.trim()));
+                        telefonos.add(telefono.trim());
                     }
 
                     // Convertir los datos de correos a ArrayList<String>
-                    String[] correosStr = arr[2].split(",");
+                    String[] correosStr = arr[6].split(",");
                     for (String correo : correosStr) {
                         correos.add(correo.trim());
                     }
 
                     try {
-                        Emprendedor emprendedorAux = new Emprendedor(arr[0], arr[1], arr[2], arr[3], arr[4], telefonos, correos, arr[5], arr[6]);
+                        Emprendedor emprendedorAux = new Emprendedor(arr[0], arr[1], arr[2], arr[3], arr[4], telefonos, correos, arr[7], arr[8]);
                         emprendedores.add(emprendedorAux);
                     } catch (NumberFormatException e) {
                         // TODO: handle exception
@@ -266,6 +266,7 @@ public class ReadCSV {
                 fileWriter.write(line.toString());
                 fileWriter.close();
             } catch (Exception e) {
+                System.out.println("Error: "+e);
                 // TODO: handle exception
             }
             System.out.println("Emprendedor agregado correctamente.");

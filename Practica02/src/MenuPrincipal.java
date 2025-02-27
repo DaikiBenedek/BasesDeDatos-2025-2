@@ -7,9 +7,9 @@ import java.util.Scanner;
 public class MenuPrincipal {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	
-  	static ArrayList<Negocio> negocios = ReadCSV.leeNegociosCSV("src/Negocios.csv");
-  	static ArrayList<Cliente> clientes =  ReadCSV.leeClientesCSV("src/Clientes.csv");
-  	static ArrayList<Emprendedor> emprendedores =  ReadCSV.leeEmprendedoresCSV("src/Emprendedores.csv");
+  	static ArrayList<Negocio> negocios = ReadCSV.leeNegociosCSV("./Negocios.csv");
+  	static ArrayList<Cliente> clientes =  ReadCSV.leeClientesCSV("./Clientes.csv");
+  	static ArrayList<Emprendedor> emprendedores =  ReadCSV.leeEmprendedoresCSV("./Emprendedores.csv");
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
@@ -87,7 +87,7 @@ public class MenuPrincipal {
 			String apellidoPat;
 			String apellidoMat;
 			String domicilio;
-			ArrayList<Long> telefonos = new ArrayList<>();
+			ArrayList<String> telefonos = new ArrayList<>();
 			ArrayList<String> correos = new ArrayList<>();
 			String fechaNac;
 			String genero;
@@ -106,7 +106,7 @@ public class MenuPrincipal {
 					break;
 				}
 				try {
-					telefonos.add(Long.parseLong(telefono)); // Convertir a Long y agregar a la lista
+					telefonos.add(telefono); // Convertir a Long y agregar a la lista
 				} catch (NumberFormatException e) {
 					System.out.println("Error: Ingrese un número válido.");
 				}
@@ -127,7 +127,7 @@ public class MenuPrincipal {
 
 			// Crear el objeto Emprendedor
 			Emprendedor emprendedorNuevo = new Emprendedor(rfc, nombre, apellidoPat, apellidoMat, domicilio, telefonos, correos, fechaNac, genero);
-			ReadCSV.agregaEmprendedores("Practica02/src/Emprendedores.csv", emprendedorNuevo,emprendedores);
+			ReadCSV.agregaEmprendedores("./Emprendedores.csv", emprendedorNuevo,emprendedores);
 			break;
 		case (1): //Consultar
 			Scanner scEmprendedor2 = new Scanner(System.in);
@@ -142,7 +142,7 @@ public class MenuPrincipal {
 
 		case (3):
 			Scanner scEmprendedor3 = new Scanner(System.in);
-			System.out.println("¿Cuál es el rfc deñ emprendedor que deseas eliminar?");
+			System.out.println("¿Cuál es el rfc del emprendedor que deseas eliminar?");
 			rfc = scEmprendedor3.nextLine();
 			ReadCSV.eliminaEmprendedor(rfc, emprendedores);
 		break;
