@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Representa un emprendedor con su información personal y de contacto.
+ * Representa un emprendedor con su informacion personal y de contacto.
  */
 public class Emprendedor {
     private String rfc;
@@ -22,10 +22,10 @@ public class Emprendedor {
      * @param apellidoPat Apellido paterno del emprendedor.
      * @param apellidoMat Apellido materno del emprendedor.
      * @param domicilio   Domicilio del emprendedor.
-     * @param telefonos   Lista de números de teléfono del emprendedor.
-     * @param correos     Lista de correos electrónicos del emprendedor.
+     * @param telefonos   Lista de numeros de telefono del emprendedor.
+     * @param correos     Lista de correos electronicos del emprendedor.
      * @param fechaNac    Fecha de nacimiento del emprendedor.
-     * @param genero      Género del emprendedor.
+     * @param genero      Genero del emprendedor.
      */
     public Emprendedor(String rfc, String nombre, String apellidoPat, String apellidoMat, String domicilio,
                        ArrayList<String> telefonos, ArrayList<String> correos, String fechaNac, String genero) {
@@ -122,32 +122,32 @@ public class Emprendedor {
     }
 
     /**
-     * Obtiene la lista de teléfonos del emprendedor.
-     * @return Lista de números de teléfono.
+     * Obtiene la lista de telefonos del emprendedor.
+     * @return Lista de numeros de telefono.
      */
     public ArrayList<String> getTelefonos() { 
         return telefonos;
      }
 
     /**
-     * Establece la lista de teléfonos del emprendedor.
-     * @param telefonos Lista de números de teléfono.
+     * Establece la lista de telefonos del emprendedor.
+     * @param telefonos Lista de numeros de telefono.
      */
     public void setTelefonos(ArrayList<String> telefonos) { 
         this.telefonos = telefonos; 
     }
 
     /**
-     * Obtiene la lista de correos electrónicos del emprendedor.
-     * @return Lista de correos electrónicos.
+     * Obtiene la lista de correos electronicos del emprendedor.
+     * @return Lista de correos electronicos.
      */
     public ArrayList<String> getCorreos() { 
         return correos; 
     }
 
     /**
-     * Establece la lista de correos electrónicos del emprendedor.
-     * @param correos Lista de correos electrónicos.
+     * Establece la lista de correos electronicos del emprendedor.
+     * @param correos Lista de correos electronicos.
      */
     public void setCorreos(ArrayList<String> correos) { 
         this.correos = correos;
@@ -170,23 +170,23 @@ public class Emprendedor {
     }
 
     /**
-     * Obtiene el género del emprendedor.
-     * @return Género del emprendedor.
+     * Obtiene el genero del emprendedor.
+     * @return Genero del emprendedor.
      */
     public String getGenero() { 
         return genero; 
     }
 
     /**
-     * Establece el género del emprendedor.
-     * @param genero Género del emprendedor.
+     * Establece el genero del emprendedor.
+     * @param genero Genero del emprendedor.
      */
     public void setGenero(String genero) { 
         this.genero = genero; 
     }
 
     /**
-     * Método para imprimir un emprendedor
+     * Metodo para imprimir un emprendedor
 	 * @return String
 	 */
     @Override
@@ -200,7 +200,7 @@ public class Emprendedor {
     }   
 
     /**
-     * Método para serializar un emprendedor
+     * Metodo para serializar un emprendedor
 	 * @return String
 	 */
     public String serializa(){

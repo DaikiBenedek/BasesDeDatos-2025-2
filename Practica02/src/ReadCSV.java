@@ -26,7 +26,7 @@ public class ReadCSV {
                 String [] arr;
                 aux = lector.readLine();
 
-                // iteremos hasta que no encontremos líneas.
+                // iteremos hasta que no encontremos lineas.
                 while (aux != null){
                     arr = aux.split(";");
                     ArrayList<String> telefonos = new ArrayList<>();
@@ -82,7 +82,7 @@ public class ReadCSV {
                 String [] arr;
                 aux = lector.readLine();
 
-                // iteremos hasta que no encontremos líneas.
+                // iteremos hasta que no encontremos lineas.
                 while (aux != null){
                     arr = aux.split(";");
                     Cliente clientesAux = new Cliente(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], Boolean.parseBoolean(arr[4]), arr[5], arr[6], arr[7] ,Integer.parseInt(arr[8]));
@@ -103,7 +103,7 @@ public class ReadCSV {
 
     /**
      * Lee el CSV de los emprendedores
-     * @param dir dirección del csv.
+     * @param dir direccion del csv.
      * @return Arrayslist<Emprendedor>
      */
     public static ArrayList<Emprendedor> leeEmprendedoresCSV (String dir){
@@ -117,7 +117,7 @@ public class ReadCSV {
                 String [] arr;
                 aux = lector.readLine();
 
-                // iteremos hasta que no encontremos líneas.
+                // iteremos hasta que no encontremos lineas.
                 while (aux != null){
                     arr = aux.split(";");
                     ArrayList<String> telefonos = new ArrayList<>();
@@ -163,9 +163,9 @@ public class ReadCSV {
 
 
 
-    //MÉTODOS PARA ELIMINAR
+    //MeTODOS PARA ELIMINAR
     /**
-     * Método par eliminar un emprendedor
+     * Metodo par eliminar un emprendedor
      * @param id
      * @param arrEm
      */
@@ -179,7 +179,7 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró al emprendedor");
+            System.out.println("No se encontro al emprendedor");
         } else {
             System.out.println("Emprendedor con RFC " + rfc + " eliminado correctamente.");
             try (FileWriter fileWriter = new FileWriter(new File("./Emprendedores.csv"))) {
@@ -196,8 +196,8 @@ public class ReadCSV {
     }
 
     /**
-     * Método para eliminar un cliente del arraylist.
-     * @param id identificador único.
+     * Metodo para eliminar un cliente del arraylist.
+     * @param id identificador unico.
      * @param arrCl
      */
     public static void eliminaCliente(int id, ArrayList<Cliente> arrCl){
@@ -210,7 +210,7 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró el empleado");
+            System.out.println("No se encontro el empleado");
         }else {
             System.out.println("Cliente con ID " + id + " eliminado correctamente.");
             try (FileWriter fileWriter = new FileWriter(new File("./Clientes.csv"))) {
@@ -227,7 +227,7 @@ public class ReadCSV {
     }
 
     /**
-     * Método para eliminar un negocio del Arraylist
+     * Metodo para eliminar un negocio del Arraylist
      * @param id
      * @param arrNeg
      */
@@ -241,7 +241,7 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró el negocio");
+            System.out.println("No se encontro el negocio");
         }else {
             System.out.println("Negocio con ID " + id + " eliminado correctamente.");
             try (FileWriter fileWriter = new FileWriter(new File("./Negocios.csv"))) {
@@ -269,7 +269,7 @@ public class ReadCSV {
 
 
 
-//Métodos para escribir en el CSV
+//Metodos para escribir en el CSV
     /** 
      * Metodo para agregar un emprendedor al csv
      * @param emprendedorNuevo
@@ -281,7 +281,7 @@ public class ReadCSV {
 
         for(Emprendedor emprendedor: emprendedores){
             if(emprendedor.getRfc().equals(emprendedorNuevo.getRfc())){
-                System.out.println("Error, este emprendedor ya está en el sistema");
+                System.out.println("Error, este emprendedor ya esta en el sistema");
                 z = true;
                 break;
             }
@@ -317,7 +317,7 @@ public class ReadCSV {
 
         for(Cliente negocio: clientes){
             if(negocio.getId() == clienteNuevo.getId()){
-                System.out.println("Error, este emprendedor ya está en el sistema");
+                System.out.println("Error, este emprendedor ya esta en el sistema");
                 z = true;
                 break;
             }
@@ -352,7 +352,7 @@ public class ReadCSV {
 
         for(Negocio negocio: negocios){
             if(negocio.getId() == negocioNuevo.getId()){
-                System.out.println("Error, este emprendedor ya está en el sistema");
+                System.out.println("Error, este emprendedor ya esta en el sistema");
                 z = true;
                 break;
             }
@@ -392,10 +392,10 @@ public class ReadCSV {
 
 
 
-    //MÉTODOS PARA CONSULTAR
+    //MeTODOS PARA CONSULTAR
     /**
-     * Método que consulta la información de un emprendedor.
-     * @param rfc identificador único.
+     * Metodo que consulta la informacion de un emprendedor.
+     * @param rfc identificador unico.
      * @param arrEmp arrayList de empleados
      */
     public static void consultaEmprendedor(String rfc, ArrayList<Emprendedor> arrEmp){
@@ -409,13 +409,13 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró al emprendedor");
+            System.out.println("No se encontro al emprendedor");
         }
     }
 
     /**
-     * Método que consulta la información de un cliente.
-     * @param id identificador único.
+     * Metodo que consulta la informacion de un cliente.
+     * @param id identificador unico.
      * @param arrCl arrayList de empleados
      */
     public static void consultaCliente(int id , ArrayList<Cliente> arrCl){
@@ -429,13 +429,13 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró al cliente");
+            System.out.println("No se encontro al cliente");
         }
     }
 
     /**
-     * Método que consulta la información de un negocio.
-     * @param id identificador único.
+     * Metodo que consulta la informacion de un negocio.
+     * @param id identificador unico.
      * @param arrNe arrayList de empleados
      */
     public static void consultaNegocio(int id, ArrayList<Negocio> arrNe){
@@ -449,7 +449,7 @@ public class ReadCSV {
             }
         }
         if(!encontrado){
-            System.out.println("No se encontró al negocio");
+            System.out.println("No se encontro al negocio");
         }
     }
 }

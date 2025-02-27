@@ -14,11 +14,11 @@ public class Negocio {
      * 
      * @param id  ID del negocio
      * @param nombreNegocio  Nombre del negocio
-     * @param telefonos      Lista de números de teléfono
-     * @param correos        Lista de correos electrónicos
+     * @param telefonos      Lista de numeros de telefono
+     * @param correos        Lista de correos electronicos
      * @param redesSociales  Lista de redes sociales
      * @param rangoPrecios   Rango de precios del negocio
-     * @param descripcion    Descripción del negocio
+     * @param descripcion    Descripcion del negocio
      */
     public Negocio(int id, String nombreNegocio, ArrayList<String> telefonos, ArrayList<String> correos, ArrayList<String> redesSociales, String rangoPrecios, String descripcion) {
         this.id = id;
@@ -55,32 +55,32 @@ public class Negocio {
     }
 
     /**
-     * Obtiene la lista de teléfonos del negocio.
-     * @return Lista de números de teléfono.
+     * Obtiene la lista de telefonos del negocio.
+     * @return Lista de numeros de telefono.
      */
     public ArrayList<String> getTelefonos() {
         return telefonos;
     }
 
     /**
-     * Establece la lista de teléfonos del negocio.
-     * @param telefonos Lista de números de teléfono.
+     * Establece la lista de telefonos del negocio.
+     * @param telefonos Lista de numeros de telefono.
      */
     public void setTelefonos(ArrayList<String> telefonos) {
         this.telefonos = telefonos;
     }
 
     /**
-     * Obtiene la lista de correos electrónicos del negocio.
-     * @return Lista de correos electrónicos.
+     * Obtiene la lista de correos electronicos del negocio.
+     * @return Lista de correos electronicos.
      */
     public ArrayList<String> getCorreos() {
         return correos;
     }
 
     /**
-     * Establece la lista de correos electrónicos del negocio.
-     * @param correos Lista de correos electrónicos.
+     * Establece la lista de correos electronicos del negocio.
+     * @param correos Lista de correos electronicos.
      */
     public void setCorreos(ArrayList<String> correos) {
         this.correos = correos;
@@ -119,16 +119,16 @@ public class Negocio {
     }
 
     /**
-     * Obtiene la descripción del negocio.
-     * @return Descripción del negocio.
+     * Obtiene la descripcion del negocio.
+     * @return Descripcion del negocio.
      */
     public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * Establece la descripción del negocio.
-     * @param descripcion Descripción del negocio.
+     * Establece la descripcion del negocio.
+     * @param descripcion Descripcion del negocio.
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
@@ -136,7 +136,7 @@ public class Negocio {
 
 
     /**
-     * Método para imprimir un emprendedor
+     * Metodo para imprimir un emprendedor
 	 * @return String
 	 */
     @Override
@@ -149,7 +149,7 @@ public class Negocio {
     }   
 
     /**
-     * Método para serializar un emprendedor
+     * Metodo para serializar un emprendedor
 	 * @return String
 	 */
     public String serializa(){

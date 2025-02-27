@@ -1,5 +1,5 @@
 /**
- * Representa un cliente con su información personal y de pago.
+ * Representa un cliente con su informacion personal y de pago.
  */
 public class Cliente {
     private int id;
@@ -19,11 +19,11 @@ public class Cliente {
      * @param nombre       Nombre del cliente.
      * @param apellidoPat  Apellido paterno del cliente.
      * @param apellidoMat  Apellido materno del cliente.
-     * @param metodoPago   Método de pago (true si es tarjeta, false si es efectivo).
+     * @param metodoPago   Metodo de pago (true si es tarjeta, false si es efectivo).
      * @param domicilio    Domicilio del cliente.
-     * @param numeroTarjeta Número de tarjeta del cliente.
+     * @param numeroTarjeta Numero de tarjeta del cliente.
      * @param vencimiento  Fecha de vencimiento de la tarjeta.
-     * @param cvv          Código de seguridad de la tarjeta.
+     * @param cvv          Codigo de seguridad de la tarjeta.
      */
     public Cliente(int id, String nombre, String apellidoPat, String apellidoMat, boolean metodoPago, String domicilio, String numeroTarjeta, String vencimiento, int cvv) {
         this.id = id;
@@ -95,7 +95,7 @@ public class Cliente {
     }
 
     /**
-     * Obtiene el método de pago del cliente.
+     * Obtiene el metodo de pago del cliente.
      * @return true si es tarjeta, false si es efectivo.
      */
     public boolean isMetodoPago() {
@@ -103,7 +103,7 @@ public class Cliente {
      }
 
     /**
-     * Establece el método de pago del cliente.
+     * Establece el metodo de pago del cliente.
      * @param metodoPago true si es tarjeta, false si es efectivo.
      */
     public void setMetodoPago(boolean metodoPago) { 
@@ -127,16 +127,16 @@ public class Cliente {
     }
 
     /**
-     * Obtiene el número de tarjeta del cliente.
-     * @return Número de tarjeta del cliente.
+     * Obtiene el numero de tarjeta del cliente.
+     * @return Numero de tarjeta del cliente.
      */
     public String getNumeroTarjeta() { 
         return numeroTarjeta;
     }
 
     /**
-     * Establece el número de tarjeta del cliente.
-     * @param numeroTarjeta Número de tarjeta del cliente.
+     * Establece el numero de tarjeta del cliente.
+     * @param numeroTarjeta Numero de tarjeta del cliente.
      */
     public void setNumeroTarjeta(String numeroTarjeta) { 
         this.numeroTarjeta = numeroTarjeta; 
@@ -159,23 +159,23 @@ public class Cliente {
     }
 
     /**
-     * Obtiene el código de seguridad de la tarjeta.
-     * @return Código de seguridad de la tarjeta.
+     * Obtiene el codigo de seguridad de la tarjeta.
+     * @return Codigo de seguridad de la tarjeta.
      */
     public int getCvv() { 
         return cvv;
      }
 
     /**
-     * Establece el código de seguridad de la tarjeta.
-     * @param cvv Código de seguridad de la tarjeta.
+     * Establece el codigo de seguridad de la tarjeta.
+     * @param cvv Codigo de seguridad de la tarjeta.
      */
     public void setCvv(int cvv) {
          this.cvv = cvv; 
     }
 
     /**
-     * Método para imprimir un emprendedor
+     * Metodo para imprimir un emprendedor
 	 * @return String
 	 */
     @Override
@@ -189,7 +189,7 @@ public class Cliente {
     }   
 
     /**
-     * Método para serializar un emprendedor
+     * Metodo para serializar un emprendedor
 	 * @return String
 	 */
     public String serializa(){

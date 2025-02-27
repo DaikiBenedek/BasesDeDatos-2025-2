@@ -57,18 +57,18 @@ public class MenuPrincipal {
                 salir = true;
                 break;
               default:
-                System.out.println("Solo números entre 1 y 4");
+                System.out.println("Solo numeros entre 1 y 4");
             }
           }
             catch (IllegalArgumentException e) {
-            System.out.println("Argumento invalido, favor de introducir solo números");
+            System.out.println("Argumento invalido, favor de introducir solo numeros");
           }
         }
     }
 
     public static void menuCliente(){
 
-		int a = getInt(4,"¿Qué deseas realizar? \n Escribe 0 para agregar un nuevo Cliente \n Escribe 1 para consultar un Cliente \n Escribe 2 para editar un Cliente \n Escribe 3 para eliminar un Cliente", "Error, eso no es una opcion");
+		int a = getInt(4,"¿Que deseas realizar? \n Escribe 0 para agregar un nuevo Cliente \n Escribe 1 para consultar un Cliente \n Escribe 2 para editar un Cliente \n Escribe 3 para eliminar un Cliente", "Error, eso no es una opcion");
     	switch (a){
 
       	case (0): //Agregar
@@ -85,19 +85,19 @@ public class MenuPrincipal {
 
 			do{
 				flag = false;
-				id = getInt(10000000, "¿Cuál es el ID del cliente?: " , "Error, eso no es un número");
+				id = getInt(10000000, "¿Cual es el ID del cliente?: " , "Error, eso no es un numero");
 				//Verifica que es un entero
 				if(id % 1 == 0){
 				  flag = true;
 				}
 			}while(flag == false);
-			nombre = getOnlyLettersSpace("¿Cuál es el nombre?: ");
-			apellidoPat =  getOnlyLetters("¿Cuál es el apellido paterno?: ");
-			apellidoMat =  getOnlyLetters("¿Cuál es el apellido materno?: ");
+			nombre = getOnlyLettersSpace("¿Cual es el nombre?: ");
+			apellidoPat =  getOnlyLetters("¿Cual es el apellido paterno?: ");
+			apellidoMat =  getOnlyLetters("¿Cual es el apellido materno?: ");
 			boolean b = false;
 			do {
 				try {
-					System.out.println("¿Cuál es tu método de pago? ('true' si es tarjeta, 'false' si es efectivo)");
+					System.out.println("¿Cual es tu metodo de pago? ('true' si es tarjeta, 'false' si es efectivo)");
 					Scanner n = new Scanner(System.in);
 					boolean bn = n.nextBoolean();
 					metodoPago = bn;
@@ -106,12 +106,12 @@ public class MenuPrincipal {
 					System.out.println("Escribe un booleano");
 				}
 			} while (!b);
-			domicilio =  getOnlyLettersSpaceNumber("¿Cuál es el domicilio?: ");
-			numeroTarjeta = getOnlyNumber("¿Cuál es el numero de la tarjeta?: ");
-			vencimiento = getOnlyLettersSpaceNumber("¿Cuál es el vencimiento de la tarjeta?: ");
+			domicilio =  getOnlyLettersSpaceNumber("¿Cual es el domicilio?: ");
+			numeroTarjeta = getOnlyNumber("¿Cual es el numero de la tarjeta?: ");
+			vencimiento = getOnlyLettersSpaceNumber("¿Cual es el vencimiento de la tarjeta?: ");
 			do{
 				flag = false;
-				cvv = getInt(1000, "¿Cuál es el CVV de la tarjeta?: " , "Error, eso no es un número");
+				cvv = getInt(1000, "¿Cual es el CVV de la tarjeta?: " , "Error, eso no es un numero");
 				//Verifica que es un entero
 				if(cvv % 1 == 0){
 				  flag = true;
@@ -124,7 +124,7 @@ public class MenuPrincipal {
 			break;
 		case (1): //Consultar
 			Scanner scCliente2 = new Scanner(System.in);
-			System.out.println("¿Cuál es el ID del cliente que deseas consultar?");
+			System.out.println("¿Cual es el ID del cliente que deseas consultar?");
 			id = scCliente2.nextInt();
 			ReadCSV.consultaCliente(id, clientes);
 		break;
@@ -135,20 +135,20 @@ public class MenuPrincipal {
 
 		case (3):
 			Scanner scCliente3 = new Scanner(System.in);
-			System.out.println("¿Cuál es el ID del cliente que deseas eliminar?");
+			System.out.println("¿Cual es el ID del cliente que deseas eliminar?");
 			id = scCliente3.nextInt();
 			ReadCSV.eliminaCliente(id, clientes);
 		break;
 	  
 		default:
-			System.out.println("Elige una opcion válida");
+			System.out.println("Elige una opcion valida");
 		break;
 		}
 		
     }
 
     public static void menuEmprendedor(){
-		int a = getInt(4,"¿Qué deseas realizar? \n Escribe 0 para agregar un nuevo Emprendedor \n Escribe 1 para consultar un Emprendedor \n Escribe 2 para editar un Emprendedor \n Escribe 3 para eliminar un Emprendedor", "Error, eso no es una opcion");
+		int a = getInt(4,"¿Que deseas realizar? \n Escribe 0 para agregar un nuevo Emprendedor \n Escribe 1 para consultar un Emprendedor \n Escribe 2 para editar un Emprendedor \n Escribe 3 para eliminar un Emprendedor", "Error, eso no es una opcion");
     	switch (a){
 
       	case (0): //Agregar
@@ -162,23 +162,23 @@ public class MenuPrincipal {
 			String fechaNac;
 			String genero;
 
-			rfc = getOnlyLettersSpaceNumber("¿Cuál es el RFC?: ");
-			nombre = getOnlyLettersSpace("¿Cuál es el nombre?: ");
-			apellidoPat =  getOnlyLetters("¿Cuál es el apellido paterno?: ");
-			apellidoMat =  getOnlyLetters("¿Cuál es el apellido materno?: ");
-			domicilio =  getOnlyLettersSpaceNumber("¿Cuál es el domicilio?: ");
-			// Solicitar teléfonos
+			rfc = getOnlyLettersSpaceNumber("¿Cual es el RFC?: ");
+			nombre = getOnlyLettersSpace("¿Cual es el nombre?: ");
+			apellidoPat =  getOnlyLetters("¿Cual es el apellido paterno?: ");
+			apellidoMat =  getOnlyLetters("¿Cual es el apellido materno?: ");
+			domicilio =  getOnlyLettersSpaceNumber("¿Cual es el domicilio?: ");
+			// Solicitar telefonos
 
-			System.out.println("Ingrese los teléfonos (ingrese '0' para terminar):");
+			System.out.println("Ingrese los telefonos (ingrese '0' para terminar):");
 			while (true) {
-				String telefono = getOnlyNumber("Ingrese un teléfono: ");
+				String telefono = getOnlyNumber("Ingrese un telefono: ");
 				if (telefono.equalsIgnoreCase("0")) {
 					break;
 				}
 				try {
 					telefonos.add(telefono); // Convertir a Long y agregar a la lista
 				} catch (NumberFormatException e) {
-					System.out.println("Error: Ingrese un número válido.");
+					System.out.println("Error: Ingrese un numero valido.");
 				}
 			}
 
@@ -192,8 +192,8 @@ public class MenuPrincipal {
 				correos.add(correo); // Agregar a la lista
 			}
 
-			fechaNac = getFechaDeNacimiento("¿Cuál es la fecha de Nacimiento? (en formato DD/MM/YYYY): ");
-			genero = getOnlyLettersSpace("¿Cuál es el género?: ");
+			fechaNac = getFechaDeNacimiento("¿Cual es la fecha de Nacimiento? (en formato DD/MM/YYYY): ");
+			genero = getOnlyLettersSpace("¿Cual es el genero?: ");
 
 			// Crear el objeto Emprendedor
 			Emprendedor emprendedorNuevo = new Emprendedor(rfc, nombre, apellidoPat, apellidoMat, domicilio, telefonos, correos, fechaNac, genero);
@@ -201,7 +201,7 @@ public class MenuPrincipal {
 			break;
 		case (1): //Consultar
 			Scanner scEmprendedor2 = new Scanner(System.in);
-			System.out.println("¿Cuál es el rfc del emprendedor que deseas consultar?");
+			System.out.println("¿Cual es el rfc del emprendedor que deseas consultar?");
 			rfc = scEmprendedor2.nextLine();
 			ReadCSV.consultaEmprendedor(rfc, emprendedores);
 		break;
@@ -212,13 +212,13 @@ public class MenuPrincipal {
 
 		case (3):
 			Scanner scEmprendedor3 = new Scanner(System.in);
-			System.out.println("¿Cuál es el rfc del emprendedor que deseas eliminar?");
+			System.out.println("¿Cual es el rfc del emprendedor que deseas eliminar?");
 			rfc = scEmprendedor3.nextLine();
 			ReadCSV.eliminaEmprendedor(rfc, emprendedores);
 		break;
 	  
 		default:
-			System.out.println("Elige una opcion válida");
+			System.out.println("Elige una opcion valida");
 		break;
 		}
 
@@ -226,7 +226,7 @@ public class MenuPrincipal {
 
     public static void menuNegocio(){
 
-		int a = getInt(4,"¿Qué deseas realizar? \n Escribe 0 para agregar un nuevo Negocio \n Escribe 1 para consultar un Negocio \n Escribe 2 para editar un Negocio \n Escribe 3 para eliminar un Negocio", "Error, eso no es una opcion");
+		int a = getInt(4,"¿Que deseas realizar? \n Escribe 0 para agregar un nuevo Negocio \n Escribe 1 para consultar un Negocio \n Escribe 2 para editar un Negocio \n Escribe 3 para eliminar un Negocio", "Error, eso no es una opcion");
     	switch (a){
 
       	case (0): //Agregar
@@ -241,27 +241,27 @@ public class MenuPrincipal {
 
 			do{
 				flag = false;
-				id = getInt(10000000, "¿Cuál es el ID del Negocio? (Solo numeros): " , "Error, eso no es un número");
+				id = getInt(10000000, "¿Cual es el ID del Negocio? (Solo numeros): " , "Error, eso no es un numero");
 				//Verifica que es un entero
 				if(id % 1 == 0){
 				  flag = true;
 				}
 			}while(flag == false);
 
-			nombreNegocio = getOnlyLettersSpaceNumber("¿Cuál es el nombre?: ");
+			nombreNegocio = getOnlyLettersSpaceNumber("¿Cual es el nombre?: ");
 			
-			// Solicitar teléfonos
+			// Solicitar telefonos
 
-			System.out.println("Ingrese los teléfonos (ingrese '0' para terminar):");
+			System.out.println("Ingrese los telefonos (ingrese '0' para terminar):");
 			while (true) {
-				String telefono = getOnlyNumber("Ingrese un teléfono: ");
+				String telefono = getOnlyNumber("Ingrese un telefono: ");
 				if (telefono.equalsIgnoreCase("0")) {
 					break;
 				}
 				try {
 					telefonos.add(telefono);
 				} catch (NumberFormatException e) {
-					System.out.println("Error: Ingrese un número válido.");
+					System.out.println("Error: Ingrese un numero valido.");
 				}
 			}
 
@@ -285,15 +285,15 @@ public class MenuPrincipal {
 				redesSociales.add(redSocial); // Agregar a la lista
 			}
 
-			rangoPrecios =  getOnlyLettersSpaceNumber("¿Cuál es el rango de precios? (en formato '000 a 000'): ");
-			descripcion =  getOnlyLettersSpaceNumber("¿Cuál es la descripcion?: ");
+			rangoPrecios =  getOnlyLettersSpaceNumber("¿Cual es el rango de precios? (en formato '000 a 000'): ");
+			descripcion =  getOnlyLettersSpaceNumber("¿Cual es la descripcion?: ");
 			// Crear el objeto Emprendedor
 			Negocio negocioNuevo = new Negocio(id, nombreNegocio, telefonos, correos, redesSociales, rangoPrecios, descripcion);
 			ReadCSV.agregaNegocios("./Negocios.csv", negocioNuevo,negocios);
 			break;
 		case (1): //Consultar
 			Scanner scNegocio2 = new Scanner(System.in);
-			System.out.println("¿Cuál es el ID del negocio que deseas consultar?");
+			System.out.println("¿Cual es el ID del negocio que deseas consultar?");
 			id = scNegocio2.nextInt();
 			ReadCSV.consultaNegocio(id, negocios);
 		break;
@@ -304,19 +304,19 @@ public class MenuPrincipal {
 
 		case (3):
 			Scanner scNegocio3 = new Scanner(System.in);
-			System.out.println("¿Cuál es el ID del negocio que deseas eliminar?");
+			System.out.println("¿Cual es el ID del negocio que deseas eliminar?");
 			id = scNegocio3.nextInt();
 			ReadCSV.eliminaNegocio(id, negocios);
 		break;
 	  
 		default:
-			System.out.println("Elige una opcion válida");
+			System.out.println("Elige una opcion valida");
 		break;
 		}
 		
     }
     /**
-    *getInt recibe un entero, dos cadenas y devuelve un entero, si lo que el usuario ponga no es un entero, devolverá error
+    *getInt recibe un entero, dos cadenas y devuelve un entero, si lo que el usuario ponga no es un entero, devolvera error
     * hasta que se le pase un entero, es para verificar si es un entero o no. La primera cadena es el mensaje
     * que queremos que el usuario vea y la segunda es el error. el entero que recibe es la cota superior.
     *@param d cota superior
@@ -346,15 +346,15 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si la entrada del usuario es solo numeros
+	// Metodo que verifica si la entrada del usuario es solo numeros
 	// numeros
 	// muestra
 	// mensajes de error
-	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	// en caso de que la entrada sea otra cosa (por ejemplo: numeros)
 	public static String getOnlyNumber(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que verificará si la entrada del usuario son letras
+		// bucle que verificara si la entrada del usuario son letras
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -363,7 +363,7 @@ public class MenuPrincipal {
 			} catch (IOException | StringIndexOutOfBoundsException e) {
 				System.out.println("Error al recibir letras");
 			}
-			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+			// condicion que atraviesa el tamaño de las letras y cambia el valor a false
 
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 48) || ((int) letters.charAt(l) > 57)))/* 0 - 9 */
@@ -371,8 +371,8 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			// El bucle se ejecuta mientras la verificación == falsa
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
@@ -381,13 +381,13 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si la entrada del usuario es solo letras y muestra
+	// Metodo que verifica si la entrada del usuario es solo letras y muestra
 	// mensajes de error
-	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	// en caso de que la entrada sea otra cosa (por ejemplo: numeros)
 	public static String getOnlyLetters(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que verificará si la entrada del usuario son letras
+		// bucle que verificara si la entrada del usuario son letras
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -396,7 +396,7 @@ public class MenuPrincipal {
 			} catch (IOException | StringIndexOutOfBoundsException e) {
 				System.out.println("Error al recibir letras");
 			}
-			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+			// condicion que atraviesa el tamaño de las letras y cambia el valor a false
 
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
@@ -404,8 +404,8 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			// El bucle se ejecuta mientras la verificación == falsa
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
@@ -414,14 +414,14 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si la entrada del usuario es solo letras y espacios y
+	// Metodo que verifica si la entrada del usuario es solo letras y espacios y
 	// muestra
 	// mensajes de error
-	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	// en caso de que la entrada sea otra cosa (por ejemplo: numeros)
 	public static String getOnlyLettersSpace(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que verificará si la entrada del usuario son letras
+		// bucle que verificara si la entrada del usuario son letras
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -430,7 +430,7 @@ public class MenuPrincipal {
 			} catch (IOException | StringIndexOutOfBoundsException e) {
 				System.out.println("Error al recibir letras");
 			}
-			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+			// condicion que atraviesa el tamaño de las letras y cambia el valor a false
 
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
@@ -440,8 +440,8 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			// El bucle se ejecuta mientras la verificación == falsa
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
@@ -451,12 +451,12 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si el correo electrónico es válido, muestra un mensaje de
+	// Metodo que verifica si el correo electronico es valido, muestra un mensaje de
 	// error en caso de el formato sea incorrecto
 	public static String getEmail(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que comprobará el formato del correo electrónico
+		// bucle que comprobara el formato del correo electronico
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -478,19 +478,19 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
 			else {
 				if (!letters.contains("@")) {
-					System.out.println("Formato no válido, ingrese correo electrónico valido");
+					System.out.println("Formato no valido, ingrese correo electronico valido");
 					check = false;
 				} else if (!letters.contains(".")) {
-					System.out.println("Formato no válido, ingrese correo electrónico valido");
+					System.out.println("Formato no valido, ingrese correo electronico valido");
 					check = false;
 				} else if (letters.indexOf("@") > letters.indexOf(".")) {
-					System.out.println("Formato no válido, ingrese correo electrónico valido");
+					System.out.println("Formato no valido, ingrese correo electronico valido");
 				}
 			}
-			// El bucle se ejecuta mientras la verificación == falsa
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
@@ -499,14 +499,14 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si la entrada del usuario es solo letras y espacios y
+	// Metodo que verifica si la entrada del usuario es solo letras y espacios y
 	// muestra
 	// mensajes de error
-	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	// en caso de que la entrada sea otra cosa (por ejemplo: numeros)
 	public static String getOnlyLettersSpaceNumber(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que verificará si la entrada del usuario son letras
+		// bucle que verificara si la entrada del usuario son letras
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -515,7 +515,7 @@ public class MenuPrincipal {
 			} catch (IOException | StringIndexOutOfBoundsException e) {
 				System.out.println("Error al recibir letras");
 			}
-			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+			// condicion que atraviesa el tamaño de las letras y cambia el valor a false
 			// ASCII
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
@@ -530,8 +530,8 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			// El bucle se ejecuta mientras la verificación == falsa
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
@@ -540,13 +540,13 @@ public class MenuPrincipal {
 	 * @param lineMessage
 	 * @return String
 	 */
-	// Método que verifica si la fecha de nacimiento es válido, muestra un mensaje
+	// Metodo que verifica si la fecha de nacimiento es valido, muestra un mensaje
 	// de
 	// error en caso de el formato sea incorrecto
 	public static String getFechaDeNacimiento(String lineMessage) {
 		boolean check = true;
 		String letters = "";
-		// bucle que comprobará el formato del correo electrónico
+		// bucle que comprobara el formato del correo electronico
 		do {
 			check = true;
 			System.out.print(lineMessage);
@@ -562,15 +562,15 @@ public class MenuPrincipal {
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+				System.out.println("¡Entrada invalida! ¡Intentar otra vez!");
 			else {
 				if (!letters.contains("/")) {
-					System.out.println("Formato no válido, ingrese la fecha de nacimiento del siguiente ejemplo: 12/03/99");
+					System.out.println("Formato no valido, ingrese la fecha de nacimiento del siguiente ejemplo: 12/03/99");
 					check = false;
 				}
 
 			}
-			// El bucle se ejecuta mientras la verificación == falsa
+			// El bucle se ejecuta mientras la verificacion == falsa
 		} while (check == false);
 		return letters;
 	}
