@@ -29,14 +29,14 @@ public class ReadCSV {
                 // iteremos hasta que no encontremos líneas.
                 while (aux != null){
                     arr = aux.split(";");
-                    ArrayList<Long> telefonos = new ArrayList<>();
+                    ArrayList<String> telefonos = new ArrayList<>();
                     ArrayList<String> correos = new ArrayList<>();
                     ArrayList<String> redesSociales = new ArrayList<>();
 
                     // Convertir los datos de telefonos a ArrayList<Long>
                     String[] telefonosStr = arr[1].split(",");
                     for (String telefono : telefonosStr) {
-                        telefonos.add(Long.parseLong(telefono.trim()));
+                        telefonos.add(telefono.trim());
                     }
 
                     // Convertir los datos de correos a ArrayList<String>
@@ -182,6 +182,16 @@ public class ReadCSV {
             System.out.println("No se encontró al emprendedor");
         } else {
             System.out.println("Emprendedor con RFC " + rfc + " eliminado correctamente.");
+            try (FileWriter fileWriter = new FileWriter(new File("./Emprendedores.csv"))) {
+                StringBuilder line = new StringBuilder();
+                for (Emprendedor emprendedor : arrEm) {
+                    line.append(emprendedor.serializa()); // Serializa cada emprendedor
+                }
+                fileWriter.write(line.toString()); // Escribe la lista actualizada en el archivo
+                System.out.println("Archivo CSV actualizado correctamente.");
+            } catch (Exception e) {
+                System.out.println("Error al actualizar el archivo CSV: " + e.getMessage());
+            }
         }
     }
 
@@ -203,6 +213,16 @@ public class ReadCSV {
             System.out.println("No se encontró el empleado");
         }else {
             System.out.println("Cliente con ID " + id + " eliminado correctamente.");
+            try (FileWriter fileWriter = new FileWriter(new File("./Clientes.csv"))) {
+                StringBuilder line = new StringBuilder();
+                for (Cliente cliente : arrCl) {
+                    line.append(cliente.serializa()); // Serializa cada emprendedor
+                }
+                fileWriter.write(line.toString()); // Escribe la lista actualizada en el archivo
+                System.out.println("Archivo CSV actualizado correctamente.");
+            } catch (Exception e) {
+                System.out.println("Error al actualizar el archivo CSV: " + e.getMessage());
+            }
         }
     }
 
@@ -224,6 +244,16 @@ public class ReadCSV {
             System.out.println("No se encontró el negocio");
         }else {
             System.out.println("Negocio con ID " + id + " eliminado correctamente.");
+            try (FileWriter fileWriter = new FileWriter(new File("./Negocios.csv"))) {
+                StringBuilder line = new StringBuilder();
+                for (Negocio negocio : arrNeg) {
+                    line.append(negocio.serializa()); // Serializa cada emprendedor
+                }
+                fileWriter.write(line.toString()); // Escribe la lista actualizada en el archivo
+                System.out.println("Archivo CSV actualizado correctamente.");
+            } catch (Exception e) {
+                System.out.println("Error al actualizar el archivo CSV: " + e.getMessage());
+            }
         }
     }
 
@@ -240,7 +270,8 @@ public class ReadCSV {
 
 
 //Métodos para escribir en el CSV
-    /**
+    /** 
+     * Metodo para agregar un emprendedor al csv
      * @param emprendedorNuevo
      * @param emprendedores
      */
@@ -275,6 +306,76 @@ public class ReadCSV {
         return emprendedores;
     }
     
+    /**
+     * Metodo para agregar un cliente al csv
+     * @param emprendedorNuevo
+     * @param emprendedores
+     */
+    public static ArrayList<Cliente> agregaClientes(String dir, Cliente clienteNuevo, ArrayList<Cliente> clientes){
+
+        boolean z = false;
+
+        for(Cliente negocio: clientes){
+            if(negocio.getId() == clienteNuevo.getId()){
+                System.out.println("Error, este emprendedor ya está en el sistema");
+                z = true;
+                break;
+            }
+        }
+        if(!z){
+            clientes.add(clienteNuevo);
+            try {
+                FileWriter fileWriter = new FileWriter( new File(dir));
+                StringBuilder line = new StringBuilder();
+                for (int i = 0; i < clientes.size(); i++){
+                    line.append(clientes.get(i).serializa());
+                }
+                fileWriter.write(line.toString());
+                fileWriter.close();
+            } catch (Exception e) {
+                System.out.println("Error: "+e);
+                // TODO: handle exception
+            }
+            System.out.println("Cliente agregado correctamente.");
+            return clientes;
+        }
+        return clientes;
+    }
+    /**
+     * Metodo para agregar un negocio al csv
+     * @param emprendedorNuevo
+     * @param emprendedores
+     */
+    public static ArrayList<Negocio> agregaNegocios(String dir, Negocio negocioNuevo, ArrayList<Negocio> negocios){
+
+        boolean z = false;
+
+        for(Negocio negocio: negocios){
+            if(negocio.getId() == negocioNuevo.getId()){
+                System.out.println("Error, este emprendedor ya está en el sistema");
+                z = true;
+                break;
+            }
+        }
+        if(!z){
+            negocios.add(negocioNuevo);
+            try {
+                FileWriter fileWriter = new FileWriter( new File(dir));
+                StringBuilder line = new StringBuilder();
+                for (int i = 0; i < negocios.size(); i++){
+                    line.append(negocios.get(i).serializa());
+                }
+                fileWriter.write(line.toString());
+                fileWriter.close();
+            } catch (Exception e) {
+                System.out.println("Error: "+e);
+                // TODO: handle exception
+            }
+            System.out.println("Negocio agregado correctamente.");
+            return negocios;
+        }
+        return negocios;
+    }
 
 
 
@@ -294,7 +395,7 @@ public class ReadCSV {
     //MÉTODOS PARA CONSULTAR
     /**
      * Método que consulta la información de un emprendedor.
-     * @param id identificador único.
+     * @param rfc identificador único.
      * @param arrEmp arrayList de empleados
      */
     public static void consultaEmprendedor(String rfc, ArrayList<Emprendedor> arrEmp){
@@ -309,6 +410,46 @@ public class ReadCSV {
         }
         if(!encontrado){
             System.out.println("No se encontró al emprendedor");
+        }
+    }
+
+    /**
+     * Método que consulta la información de un cliente.
+     * @param id identificador único.
+     * @param arrCl arrayList de empleados
+     */
+    public static void consultaCliente(int id , ArrayList<Cliente> arrCl){
+        boolean encontrado = false;
+        for( int i = 0; i< arrCl.size(); i++){
+            Cliente cl = arrCl.get(i);
+            if(cl.getId() == id){
+                System.out.println(cl);
+                encontrado = true;
+                cl.toString();
+            }
+        }
+        if(!encontrado){
+            System.out.println("No se encontró al cliente");
+        }
+    }
+
+    /**
+     * Método que consulta la información de un negocio.
+     * @param id identificador único.
+     * @param arrNe arrayList de empleados
+     */
+    public static void consultaNegocio(int id, ArrayList<Negocio> arrNe){
+        boolean encontrado = false;
+        for( int i = 0; i< arrNe.size(); i++){
+            Negocio ne = arrNe.get(i);
+            if(ne.getId() == id){
+                System.out.println(ne);
+                encontrado = true;
+                ne.toString();
+            }
+        }
+        if(!encontrado){
+            System.out.println("No se encontró al negocio");
         }
     }
 }

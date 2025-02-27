@@ -186,18 +186,23 @@ public class Emprendedor {
     }
 
     /**
+     * Método para imprimir un emprendedor
 	 * @return String
 	 */
-	// class toString
+    @Override
 	public String toString() {
 
-		String s = "\n RFC Emprendedor: " + this.rfc + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
+		String s = "\nRFC Emprendedor: " + this.rfc + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
 				+ this.apellidoPat + "\n" + "Apellido Materno: " + this.apellidoMat + "\n"
 				+ "Domicilio: " + this.domicilio + "\n" + "Telefonos: " + this.telefonos + "\n" + "correos: " + this.correos + "\n"
                 + "Fecha de Nacimiento: " + this.fechaNac + "\n" + "Genero: " + this.genero + "\n" ;
 		return s;
-    }
+    }   
 
+    /**
+     * Método para serializar un emprendedor
+	 * @return String
+	 */
     public String serializa(){
         String cadena = rfc+";"+ nombre + ";"+ apellidoPat+";"+ apellidoMat+";"+ domicilio+";"+ telefonos.toString() +";"+
         correos.toString() +";"+ fechaNac+";"+ genero + "\n";

@@ -173,4 +173,28 @@ public class Cliente {
     public void setCvv(int cvv) {
          this.cvv = cvv; 
     }
+
+    /**
+     * Método para imprimir un emprendedor
+	 * @return String
+	 */
+    @Override
+	public String toString() {
+
+		String s = "\nID Cliente: " + this.id + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
+				+ this.apellidoPat + "\n" + "Apellido Materno: " + this.apellidoMat + "\n" + "Metodo de Pago: " + this.metodoPago + "\n"
+				+ "Domicilio: " + this.domicilio + "\n" + "Numero de Tarjeta: " + this.numeroTarjeta + "\n" 
+                + "Vencimiento: " + this.vencimiento + "\n" + "CVV: " + this.cvv + "\n"  ;
+		return s;
+    }   
+
+    /**
+     * Método para serializar un emprendedor
+	 * @return String
+	 */
+    public String serializa(){
+        String cadena = id +";"+ nombre + ";"+ apellidoPat+";"+ apellidoMat+";"+ metodoPago+";"+ domicilio +";"+
+        numeroTarjeta +";"+ vencimiento+";"+ cvv + "\n";
+        return cadena;
+    }
 }

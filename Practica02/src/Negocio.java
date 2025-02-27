@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Negocio {
     private int id;
     private String nombreNegocio;
-    private ArrayList<Long> telefonos = new ArrayList<>();
+    private ArrayList<String> telefonos = new ArrayList<>();
     private ArrayList<String> correos = new ArrayList<>();
     private ArrayList<String> redesSociales = new ArrayList<>();
     private String rangoPrecios;
@@ -20,7 +20,7 @@ public class Negocio {
      * @param rangoPrecios   Rango de precios del negocio
      * @param descripcion    Descripción del negocio
      */
-    public Negocio(int id, String nombreNegocio, ArrayList<Long> telefonos, ArrayList<String> correos, ArrayList<String> redesSociales, String rangoPrecios, String descripcion) {
+    public Negocio(int id, String nombreNegocio, ArrayList<String> telefonos, ArrayList<String> correos, ArrayList<String> redesSociales, String rangoPrecios, String descripcion) {
         this.id = id;
         this.nombreNegocio = nombreNegocio;
         this.telefonos = telefonos;
@@ -58,7 +58,7 @@ public class Negocio {
      * Obtiene la lista de teléfonos del negocio.
      * @return Lista de números de teléfono.
      */
-    public ArrayList<Long> getTelefonos() {
+    public ArrayList<String> getTelefonos() {
         return telefonos;
     }
 
@@ -66,7 +66,7 @@ public class Negocio {
      * Establece la lista de teléfonos del negocio.
      * @param telefonos Lista de números de teléfono.
      */
-    public void setTelefonos(ArrayList<Long> telefonos) {
+    public void setTelefonos(ArrayList<String> telefonos) {
         this.telefonos = telefonos;
     }
 
@@ -132,5 +132,29 @@ public class Negocio {
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+
+    /**
+     * Método para imprimir un emprendedor
+	 * @return String
+	 */
+    @Override
+	public String toString() {
+
+		String s = "\nID Negocio: " + this.id + "\n" + "Nombre: " + this.nombreNegocio + "\n" + "Telefonos: " + this.telefonos 
+                + "\n" + "Correos: " + this.correos + "\n" + "Redes sociales: " + this.redesSociales
+                + "Rango de Precios: " + this.rangoPrecios + "\n" + "Descripcion: " + this.descripcion + "\n" ;
+		return s;
+    }   
+
+    /**
+     * Método para serializar un emprendedor
+	 * @return String
+	 */
+    public String serializa(){
+        String cadena = id +";"+ nombreNegocio + ";"+ telefonos.toString()+";"+ correos.toString() +";"+ redesSociales.toString()+";" +
+        rangoPrecios +";"+ descripcion+";"+ "\n";
+        return cadena;
     }
 }
